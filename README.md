@@ -44,8 +44,8 @@ Siga o passo a passo abaixo para clonar e executar o projeto localmente em ambie
 **Passo 1:** Clone este repositório e acesse a pasta do projeto:
 
 ```bash
-git clone [https://github.com/angelosilvanno/correja-landing.git](https://github.com/angelosilvanno/correja-landing.git)
-cd correja-landing
+git clone https://github.com/angelosilvanno/correja-site.git
+cd correja-site
 
 ```
 
