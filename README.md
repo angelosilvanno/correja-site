@@ -59,11 +59,9 @@ npm install
 **Passo 3:** Inicie o servidor de desenvolvimento local:
 
 ```bash
-ng serve
+npm start
 
 ```
-
-Após compilar, abra o navegador e acesse **`http://localhost:4200`**. A aplicação será recarregada automaticamente sempre que você salvar alterações nos arquivos.
 
 ## 📦 Tecnologias usadas:
 
