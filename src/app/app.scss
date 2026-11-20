@@ -1,3 +1,15 @@
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .container {
   width: 100%;
   max-width: 1180px;
@@ -12,6 +24,7 @@
   gap: 10px;
   text-decoration: none;
   color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 .brand-stripes {
@@ -120,7 +133,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 
 .desktop-nav {
@@ -159,6 +172,7 @@
   background: var(--surface-white);
   cursor: pointer;
   padding: 0 9px;
+  flex-shrink: 0;
 
   span {
     display: block;
@@ -198,6 +212,11 @@
   gap: 48px;
 }
 
+.hero-copy {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .eyebrow-pill {
   display: inline-flex;
   align-items: center;
@@ -210,6 +229,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .pulse-dot {
@@ -217,14 +237,16 @@
   height: 8px;
   border-radius: 50%;
   background: var(--brand-orange);
+  flex-shrink: 0;
 }
 
 .hero-title {
   margin: 0 0 20px;
-  font-size: clamp(2.5rem, 4.7vw, 3.85rem);
+  font-size: clamp(2.15rem, 4.7vw, 3.85rem);
   font-weight: 800;
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.035em;
+  overflow-wrap: break-word;
 
   span {
     color: var(--brand-orange);
@@ -247,12 +269,19 @@
 }
 
 .hero-micro-note {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   margin: 0 0 28px;
   font-size: 0.84rem;
+  line-height: 1.45;
   color: var(--text-muted);
+  max-width: 100%;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
 }
 
 .hero-divider {
@@ -306,6 +335,8 @@
 .hero-visual {
   display: flex;
   justify-content: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .hero-stage {
@@ -399,6 +430,7 @@
   z-index: 2;
   transform: rotate(3.2deg);
   transition: transform 0.3s ease;
+  max-width: 100%;
 
   &:hover {
     transform: rotate(0deg);
@@ -407,6 +439,7 @@
 
 .phone-shell {
   width: 356px;
+  max-width: 100%;
   background: #141416;
   border-radius: 52px;
   padding: 13px;
@@ -874,6 +907,7 @@
   border-radius: 28px;
   padding: 36px;
   box-shadow: 0 24px 48px rgba(20, 20, 22, 0.18);
+  min-width: 0;
 
   h3 {
     margin: 10px 0 28px;
@@ -949,6 +983,8 @@
 }
 
 .zones-right-copy {
+  min-width: 0;
+
   h2 {
     margin: 10px 0 16px;
     font-size: clamp(2rem, 3.4vw, 2.65rem);
@@ -1328,6 +1364,7 @@
   background: var(--bg-canvas);
   cursor: pointer;
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 .modal-desc {
@@ -1413,9 +1450,14 @@
     grid-template-columns: 1fr;
   }
 
+  .hero-section {
+    padding: 36px 0 64px;
+  }
+
   .split-section-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
 
   .cta-dark-banner {
@@ -1426,6 +1468,15 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .navbar-inner {
+    height: 68px;
+    gap: 10px;
+  }
+
   .desktop-nav,
   .navbar-actions .btn-ghost {
     display: none;
@@ -1439,7 +1490,86 @@
     display: none;
   }
 
+  .hero-stage {
+    padding: 8px 0;
+  }
+
+  .peach-circle-bg {
+    width: 310px;
+    height: 310px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .phone-tilt-wrapper {
     transform: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .section-block {
+    padding: 56px 0;
+  }
+
+  .zones-dark-card {
+    padding: 26px 20px;
+  }
+
+  .zbar-item {
+    grid-template-columns: 32px 92px 1fr;
+    gap: 8px;
+  }
+
+  .benefits-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-actions .btn-primary {
+    padding: 9px 14px;
+    font-size: 0.85rem;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    width: 100%;
+
+    .btn-primary,
+    .btn-outline {
+      width: 100%;
+    }
+  }
+
+  .hero-social-proof {
+    gap: 18px;
+  }
+
+  .phone-shell {
+    width: 100%;
+    max-width: 332px;
+    border-radius: 44px;
+    padding: 10px;
+  }
+
+  .phone-notch-bar {
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+  }
+
+  .phone-body {
+    border-bottom-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    padding: 10px 16px 16px;
+  }
+
+  .desktop-install-box {
+    flex-direction: column;
+    text-align: center;
   }
 }
